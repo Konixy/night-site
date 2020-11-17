@@ -1,0 +1,93 @@
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Night MC</title>
+	<!-- <link rel="shortcut icon" href="src/icon.png" type="src/png"/> -->
+	<link rel="stylesheet" href="src/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<!--<script src="src/script.js"></script>-->
+</head>
+<body id="blur">
+	<header>
+		<a href="#" class="logo">Night MC</a>
+		<div class="burger" onclick="toggleMenu();"><span></span></div>
+		<ul class="menu">
+			<li><a href="#" onclick="toggleMenu();">Acceuil</a></li>
+			<li><a href="#" onclick="toggleMenu();">Shop</a></li>
+			<li><a href="#" onclick="toggleMenu();">Forum</a></li>
+			<li><a href="#" onclick="toggleMenu();">Wiki</a></li>
+			<li><a href="#" onclick="toggleMenu();">Nous contacter</a></li>
+			<li><a href="#" onclick="toggleMenu(),toggle();">Mon compte</a></li>
+		</ul>
+	</header>
+	<section class="banner">
+		<div class="textBx">
+			<h2>Night MC</h2>
+			<h3>Un serveur Minecraft unique.</h3>
+			<a href="#about" class="btn"><span></span>En savoir plus</a>
+		</div>
+	</section>
+	<section class="about" id="about">
+		<div class="heading">
+			<h3>En savoir plus :</h3>
+		</div>
+		<div class="content">
+			<div class="contentBx w50">
+				<h3>Lorem ipsum dolor sit amet consectetur</h3>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo iure dolores vero, quis exercitationem magni odio culpa ex iste consectetur dolor temporibus quod natus expedita adipisci ratione, suscipit porro. Vitae!</p>
+			</div>
+			<div class="w50">
+				<img src="data:image/jpeg;base64,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" class="img">
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="rsx">
+			<h2>Nos résaux :</h2>
+		<div class="button" onclick="window.open('https://discord.gg/N9jnrHj')">
+        <div class="icon">
+<i class="fab fa-discord"></i></div>
+      </div>
+<div class="button" onclick="window.open('https://twitter.com/kony__mc')">
+        <div class="icon">
+<i class="fab fa-twitter"></i></div>
+      </div>
+<div class="button" onclick="window.open('https://www.instagram.com/kony__mc/')">
+        <div class="icon">
+<i class="fab fa-instagram"></i></div>
+      </div>
+<div class="button" onclick="window.open('https://github.com/Konixy')">
+        <div class="icon">
+<i class="fab fa-github"></i></div>
+      </div>
+<div class="button" onclick="window.open('https://www.youtube.com/channel/UCMefyZawHAoY6OUnMwXqOew?view_as=subscriber')">
+        <div class="icon">
+<i class="fab fa-youtube"></i></div>
+      </div>
+	</div>
+	<div class="copyright"><p>Copyright &copy; 2020 Night MC | Design by <span class="href" onclick="window.open('https://www.youtube.com/channel/UCFanwdATVtjTXBdX5KU-H5Q?view_as=subscriber')">Konixy</span>.</p></div>
+	</footer>
+</body>
+<script>
+	window.addEventListener("scroll", function(){
+		var header = document.querySelector("header");
+		header.classList.toggle("sticky", window.scrollY > 0)
+	})
+	
+	function toggleMenu(){
+		var menuToggle = document.querySelector('.burger')
+		var menu = document.querySelector('.menu')
+		menuToggle.classList.toggle('active')
+		menu.classList.toggle('active')
+	}
+	function toggle(){
+        var blur = document.querySelector('#blur')
+        blur.classList.toggle('active')
+    }
+</script>
+</html>
+
+<!--rsx = résaux-->
+<!--btn = boutton = <a href="#" class="btn"><span></span>expl</a>-->
