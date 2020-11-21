@@ -8,7 +8,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
 	scroll-behavior: smooth;
 	transition: 0.25s;
 }
@@ -24,7 +23,7 @@
 	height: 14px;
 	background: rgb(49, 49, 49);
 	border: solid 2px transparent;
-	border-radius: 5px;
+	border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb {
 	background: #616161;
@@ -41,6 +40,7 @@
 }
 ::-webkit-scrollbar-button {
 	background: #1b1b1b;
+	display: none;
 }
 ::-webkit-scrollbar-button:hover {
 	background: #202020;
@@ -126,6 +126,7 @@ html,body
 	background: #000;
 	min-height: 200vh;
 	scroll-behavior: smooth;
+	font-family: 'Poppins', Arial;
 }
 body {
 	height: 1000px;
@@ -144,7 +145,7 @@ header
 	padding: 40px 100px;
 	text-decoration: none;
 	z-index: 1000000;
-	font-family: 'MagmaWave', Poppins;
+	font-family: "MagmaWave", Poppins;
 }
 header.sticky
 {
@@ -188,6 +189,8 @@ header ul li a
 	letter-spacing: 2px;
 	font-weight: 0.5px;
 	transition: 0.6s;
+	font-family: 'Poppins', Arial;
+	text-transform: uppercase;
 }
 header.sticky ul li a
 {
@@ -219,6 +222,7 @@ header.sticky ul li a:hover {
 .banner h2 {
 	font-size: 3em;
 	font-weight: 700;
+	font-family: 'MagmaWave', Poppins;
 }
 .banner h3 {
 	font-size: 1.5em;
@@ -328,6 +332,10 @@ footer {
 	header, header.sticky {
 		padding: 20px 50px;
 		z-index: 1000;
+		transition-delay: 0s;
+	}
+	header .burger:hover, header.sticky .burger:hover {
+		transition-delay: 0s;
 	}
 	.menu {
 		position: fixed;
@@ -375,7 +383,8 @@ footer {
 		top: 50%;
 		transform: translateY(-50%);
 		border-radius: 1px;
-		transition: background-color 0.3s ease-in-out;
+		transition: background-color 0s;
+		transition-delay: 0.2s,0.2s;
 	}
 	.burger span::before, .burger span::after {
 		content: '';
@@ -384,22 +393,33 @@ footer {
 		height: 4px;
 		background-color: #fff;
 		border-radius: 1px;
-		transition: 0.3s ease-in-out;
+		transition: 0.2s ease;
 	}
 	.burger span::before {
-		transform: translateY(-11px);
+		top:11px;
+		transition-property:top,transform;
+		transition-delay:0.2s,0s;
+		transition-duration:0.2s ease,0.2s ease;
 	}
 	.burger span::after {
-		transform: translateY(11px);
+		top:-11px;
+		transition-property:top,transform;
+		transition-delay:0.2s,0s;
+		transition-duration:0.2s ease,0.2s ease;
 	}
 	.burger.active span {
 		background-color: transparent;
+		transition-delay: 0.2s, 0.2s;
 	}
 	.burger.active span::before {
-		transform: translateY(0px) rotate(45deg);
+		transform:rotate(45deg);
+		top:0;
+		transition-delay:0s,0.2s;
 	}
 	.burger.active span::after {
-		transform: translateY(0px) rotate(-45deg);
+		top:0;
+		transform:rotate(-45deg);
+		transition-delay:0s,0.2s;
 	}
 	header.sticky .burger span, header.sticky .burger span::before, header.sticky .burger span::after {
 		background-color: #000;
