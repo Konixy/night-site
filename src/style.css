@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-@font-face { 
+@font-face {
 	font-family: "MagmaWave"; 
 	src: url('MagmaWave.otf'); 
 }
-*
+* 
 {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	transition: 0.25s;
+	position: relative;
 }
 ::-webkit-scrollbar-track-piece {
 	border: solid 4px transparent;
@@ -69,7 +70,7 @@
 ::-webkit-scrollbar-button:decrement:hover {
 	background: #777777 url(up-arrow.png) no-repeat center/80%;
 }
-#blur.active {
+#blur.active header {
 	transition: 0.3s ease-in-out;
 	filter: blur(10px);
 	pointer-events: none;
@@ -305,18 +306,102 @@ html.cantscroll {
 #register.invalid .times-reg {
 	display: block;
 }
+#login.subInvalid #submitLog {
+	cursor: not-allowed;
+	background: #999;
+}
+#login.subInvalid #submitLog:hover {
+	background: #999;
+}
+ #register.subInvalid #submitReg {
+	cursor: not-allowed;
+	background: #999;
+}
+#register.subInvalid #submitReg:hover {
+	background: #999;
+}
 .btn {
+	position: relative;
+	display: inline-block;
 	text-transform: uppercase;
 	text-decoration: none;
-	background-color: white;
+	background-color: #262c37bb;
 	border: none;
 	padding: 10px 20px;
 	transition: 0.25s;
-	color: black;
+	color: rgba(255,255,255,0.4);
+	letter-spacing: 2px;
+	font-size: 16px;
+	line-height: normal;
 }
 .btn:hover {
-	color: black;
-	background-color: #d6d6d6;
+	color: #fff;
+	background: #262c37;
+}
+.btn span {
+	/* display: block; */
+	position: absolute;
+	background: #2894ff;
+}
+.btn span:nth-child(1) {
+	left: 0;
+	bottom: 0;
+	width: 1px;
+	height: 100%;
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform 0.5s;
+}
+.btn:hover span:nth-child(1) {
+	transform: scaleY(1);
+	transform-origin: bottom;
+	transition: transform 0.5s;
+}
+.btn span:nth-child(2) {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.5s;
+}
+.btn:hover span:nth-child(2) {
+	transform: scaleX(1);
+	transform-origin: left;
+	transition: transform 0.5s;
+}
+.btn span:nth-child(3) {
+	right: 0;
+	bottom: 0;
+	width: 1px;
+	height: 100%;
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform 0.5s;
+	transition-delay: 0.4s;
+}
+.btn:hover span:nth-child(3) {
+	transform: scaleY(1);
+	transform-origin: bottom;
+	transition: transform 0.5s;
+	transition-delay: 0.4s;
+}
+.btn span:nth-child(4) {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 1px;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.5s;
+	transition-delay: 0.4s;
+}
+.btn:hover span:nth-child(4) {
+	transform: scaleX(1);
+	transform-origin: left;
+	transition: transform 0.5s;
+	transition-delay: 0.4s;
 }
 .btn2 {
 	text-transform: uppercase;
