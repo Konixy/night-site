@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<head> 
 	<meta charset="utf-8">
 	<title>Night MC</title>
 	<link rel="shortcut icon" href="src/icon.png" type="src/png"/>
@@ -10,7 +10,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="src/script.js"></script>
 </head>
-<body>
+<body id="blur">
 	<header>
 		<a href="#" class="logo">Night MC</a>
 		<div class="burger" onclick="toggleMenu();"><span></span></div>
@@ -23,14 +23,14 @@
 			<li><a href="#" onclick="toggleMenu(),toggle();">Mon compte</a></li>
 		</ul>
 	</header>
-	<section class="banner" id="blur">
+	<section class="banner">
 		<div class="textBx">
 			<h2>Night MC</h2>
 			<h3>Un serveur Minecraft unique.</h3>
-			<a href="#about" class="btn"><span></span>En savoir plus</a>
+			<a href="#about" class="btn"><span></span><span></span><span></span><span></span>En savoir plus</a>
 		</div>
 	</section>
-	<section class="about" id="about" id="blur">
+	<section class="about" id="about">
 		<div class="heading">
 			<h3>En savoir plus :</h3>
 		</div>
@@ -71,14 +71,14 @@
 			<div class="sec contact">
 				<h2>Nous contacter</h2>
 				<ul class="info">
-					<li>
+					<!-- <li>
 						<span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
 						<span>647 Linda Street<br>Phoenixvile, PA 19460,<br>USA</span>
 					</li>
 					<li>
 						<span><i class="fa fa-phone" aria-hidden="true"></i></span>
 						<p><a href="tel:123456789">123456789</a></p>
-					</li>
+					</li> -->
 					<li>
 						<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
 						<p><a onclick="window.open('mailto:kony.mc.dc@gmail.com')">kony.mc.dc@gmail.com</a></p>
@@ -86,7 +86,7 @@
 				</ul>
 			</div>
 	</footer>
-	<div class="copyright"><p>Copyright &copy; 2020 <a href="#" class="href">Night MC</a> | Design by <span class="href" onclick="window.open('https://www.youtube.com/channel/UCFanwdATVtjTXBdX5KU-H5Q?view_as=subscriber')">Konixy</span>.</p></div>
+	<div class="copyright"><p>Copyright &copy; 2020 <a href="#" class="href">Night MC</a> | Design by <a href="https://www.youtube.com/channel/UCFanwdATVtjTXBdX5KU-H5Q?view_as=subscriber" class="href">Konixy<span style="color: grey;">#1111</span></a>.</p></div>
 	<div id="connect" class="form-box">
 		<div class="cross" onclick="toggle()"><i class="fas fa-times"></i></div>
 		<div class="button-box">
@@ -94,21 +94,22 @@
 			<button type="button" id="toggle-btn" class="toggle-btn" onclick="login()">Connection</button>
 			<button type="button" id="toggle-btn" class="toggle-btn" onclick="register()">Inscription</button>
 		</div>
-		<form id="login" class="input-group form">
+		<form id="login" class="input-group form subInvalid" action="validLog.php" method="GET">
 			<input id="email-log" type="email" class="input-field email" placeholder="Adresse mail" onkeyup="valid_login()"><i class="fas fa-check check-log"></i><i class="fas fa-times times-log"></i>
-			<input type="password" id="mdpLog" class="input-field mdp" placeholder="Mot de passe"><i class="far fa-eye eye-log" id="eyeLog" style="display: block; margin: 0;"></i><i class="far fa-eye-slash eyeoff-log" id="eye-offLog" style="display: none; margin: 0;"></i>
+			<input name="passwordLog" type="password" id="mdpLog" class="input-field mdp" placeholder="Mot de passe"><i class="far fa-eye eye-log" id="eyeLog" style="display: block; margin: 0;"></i><i class="far fa-eye-slash eyeoff-log" id="eye-offLog" style="display: none; margin: 0;"></i>
 			<input type="checkbox" class="check-box"><span>Rester connecter</span>
-			<button type="submit" class="submit-btn">Se connecter</button>
+			<button id="submitLog" type="submit" class="submit-btn">Se connecter</button>
 		</form>
-		<form id="register" class="input-group">
-			<input type="text" class="input-field pseudo" placeholder="Pseudo">
+		<form id="register" class="input-group subInvalid" action="validReg.php" method="POST">
+			<input name="pseudo" type="text" class="input-field pseudo" placeholder="Pseudo">
 			<input id="email-reg" type="email" class="input-field email" placeholder="Adresse mail" onkeyup="valid_register()"><i class="fas fa-check check-reg"></i><i class="fas fa-times times-reg"></i>
-			<input type="password" id="mdpReg" class="input-field mdp" placeholder="Mot de passe"><i class="far fa-eye eye-reg" id="eyeReg" style="display: block; margin: 0;"></i><i class="far fa-eye-slash eyeoff-reg" id="eye-offReg" style="display: none; margin: 0;"></i>
-			<input type="checkbox" class="check-box"><span>J'ai lu et j'accepte les règles de Night MC</span>
-			<button type="submit" class="submit-btn">S'inscrire</button>
+			<input name="passwordReg" type="password" id="mdpReg" class="input-field mdp" placeholder="Mot de passe"><i class="far fa-eye eye-reg" id="eyeReg" style="display: block; margin: 0;"></i><i class="far fa-eye-slash eyeoff-reg" id="eye-offReg" style="display: none; margin: 0;"></i>
+			<input type="checkbox" class="check-box"><a href="#">J'ai lu et j'accepte le règlement de Night MC</a>
+			<button id="submitReg" type="submit" class="submit-btn">S'inscrire</button>
 		</form>
 	</div>
 	<script>
+
 function valid_login(){
 	const form = document.getElementById('login');
 	const email = document.getElementById('email-log').value;
@@ -117,12 +118,19 @@ function valid_login(){
 	if(email.match(pattern)){
 		form.classList.add('valid');
 		form.classList.remove('invalid');
+		form.classList.add('subValid');
+		form.classList.remove('subInvalid');
 	} else {
+		form.classList.add('subInvalid');
+		form.classList.remove('subValid');
 		form.classList.add('invalid');
 		form.classList.remove('valid');
 	}
+
 	if(email === "") {
-		form.classList.remove('invalid');
+		form.classList.add('subInvalid');
+		form.classList.remove('subValid');
+		form.classList.add('invalid');
 		form.classList.remove('valid');
 	}
 }
@@ -135,12 +143,19 @@ function valid_register(){
 	if(email.match(pattern)){
 		form.classList.add('valid');
 		form.classList.remove('invalid');
+		form.classList.add('subValid');
+		form.classList.remove('subInvalid');
 	} else {
+		form.classList.add('subInvalid');
+		form.classList.remove('subValid');
 		form.classList.add('invalid');
 		form.classList.remove('valid');
 	}
+
 	if(email === "") {
-		form.classList.remove('invalid');
+		form.classList.add('subInvalid');
+		form.classList.remove('subValid');
+		form.classList.add('invalid');
 		form.classList.remove('valid');
 	}
 }
@@ -213,32 +228,20 @@ eyeoffReg.addEventListener('click', () => {
 	eyeoffReg.style.display = "none";
 })
 
-// $(document).ready(function() {
-//     $(sMdp).click(function() {
-//         if ($(this).attr('checked')) {
-// 			mdpp.style.display = "none";
-// 			mdpt.style.display = "block";
-// 			mdpt.innerText(mdpp.value);
-// 			// <input id="mdp"  class="input-field mdp" name="password" type="text" value="' + $('#password').attr('value') + '" />
-//         }
-//         else {
-// 			mdpp.style.display = "block";
-// 			mdpt.style.display = "none";
-// 			mdpp.innerText(mdpt.value);
-// 			//<input id="mdp"  class="input-field mdp" name="password" type="password" value="' + $('#password').attr('value') + '" />
-//         }
-//     });
+y.addEventListener('submit', function(e) {
+	if(!y.classList.contains('valid')) {
+		e.preventDefault();
+	}
+})
 
-// });
-
-// var sMdp = document.getElementById('s-mdp')
-// var password = document.getElementById('mdp')
-// sMdp.addEventListener('checked', function() {
-// 	password.type.toggle('text')
-// })
+x.addEventListener('submit', function(e) {
+	if(!x.classList.contains('valid')) {
+		e.preventDefault();
+	}
+})
 	</script>
 </body>
 </html>
 
-<!--rsx = résaux-->
-<!--btn = boutton = <a href="#" class="btn"><span></span>txt</a>-->
+<!-- rsx = résaux -->
+<!-- btn = <a href="#" class="btn"><span></span>txt</a> -->
